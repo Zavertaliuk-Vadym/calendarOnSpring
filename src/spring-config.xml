@@ -5,8 +5,17 @@
     <bean id="helloWorld" class="HelloWorld">
         <property name="message" value="Hello World!"/>
     </bean>
-    <bean id="console" class="ConsoleCalendar">
+    <bean id="print" class="print.Print" abstract="true" scope="prototype">
+        <property  name="dayOfWeek" value="TUESDAY"/>
+        <property name="weekends" >
+            <list>
+                <value>SUNDAY</value>
+                <value>FRIDAY</value>
+            </list>
+        </property>
     </bean>
-    <bean id="html" class="PrintCalendar">
+    <bean id="console" class="print.PrintInConsole" parent="print" >
+    </bean>
+    <bean id="web" class="print.PrintInWeb" parent="print">
     </bean>
 </beans>
