@@ -5,13 +5,20 @@
     <bean id="helloWorld" class="HelloWorld">
         <property name="message" value="Hello World!"/>
     </bean>
-    <bean id="print" class="print.Print" abstract="true" scope="prototype">
+    <bean id="print" class="print.Print" abstract="true" scope="prototype" >
         <property  name="dayOfWeek" value="TUESDAY"/>
         <property name="weekends" >
             <list>
                 <value>SUNDAY</value>
                 <value>FRIDAY</value>
             </list>
+        </property>
+        <property name="today">
+            <bean class="java.time.LocalDate">
+                <constructor-arg index="0" value="2014"/>
+                <constructor-arg index="1" value="6"/>
+                <constructor-arg index="2" value="1"/>
+             </bean>
         </property>
     </bean>
     <bean id="console" class="print.PrintInConsole" parent="print" >
