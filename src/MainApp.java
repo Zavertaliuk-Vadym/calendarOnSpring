@@ -18,16 +18,17 @@ public class MainApp {
         Print printer = (Print) context.getBean(typeOfInput);
 
         switch (typeOfInput) {
-           case "web":{ try (PrintWriter e = new PrintWriter("calendar.html")) {
-                   e.append(printer.print());
-               } catch (Exception e) {
-                   e.getMessage();
-               }
-               break;
-           }
-           case "console":{
-               System.out.println(printer.print());
-           }
-       }
+            case "web": {
+                try (PrintWriter e = new PrintWriter("calendar.html")) {
+                    e.append(printer.print());
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+                break;
+            }
+            case "console": {
+                System.out.println(printer.print());
+            }
+        }
     }
 }
